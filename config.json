@@ -3,5 +3,6 @@
     "discordtoken": "",
     "openaiurl": "https://ai.midori-ai.xyz/v1",
     "openaitoken": "",
+    "openaimodel": "",
     "hotword": "ai"
 }

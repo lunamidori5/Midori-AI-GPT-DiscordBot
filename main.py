@@ -50,6 +50,7 @@ discord_token = config["discordtoken"]
 
 openai_base_url = config["openaiurl"]
 openai_token = config["openaitoken"]
+openai_model = config["openaimodel"]
 
 client_openai = AsyncOpenAI(base_url=openai_base_url, api_key=openai_token, timeout=6000)
 
@@ -107,9 +108,6 @@ async def on_message_create(event):
     
     if hotword.lower() in temp_message.lower():
         can_reply = True
-
-    if "<@1233587882317320252>" in temp_message:
-        can_reply = True
     
     if can_reply != True:
         return None
@@ -144,7 +142,7 @@ async def on_message_create(event):
     while True:
         try:
 
-            response = await client_openai.chat.completions.create(model='gpt-14b-carly', temperature=1.8, stream=True, messages=messages)
+            response = await client_openai.chat.completions.create(model=openai_model, temperature=1.8, stream=True, messages=messages)
 
             #reply_content = response.choices[0].message.content
             new_item = []
