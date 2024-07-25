@@ -1,16 +1,14 @@
 #!/bin/bash
 
-apt-get update 
+yay -Syu --noconfirm python-pyfiglet python-virtualenv wget git zip tar curl tree python310
 
-apt-get install -y wget git zip tar curl tree 
-apt-get install -y python3.10 python3-pip
+yay -Ycc --noconfirm
 
-apt-get clean
-apt-get autoclean
+python3 -m venv ai
 
-pip install -U chromadb
-pip install -U discord-py-interactions
-pip install -U langchain
-pip install -U pyautogen
-pip install -U openai
-pip install -U tika
+ai/bin/pip install -U chromadb
+ai/bin/pip install -U discord-py-interactions
+ai/bin/pip install -U langchain
+ai/bin/pip install -U pyautogen
+ai/bin/pip install -U openai
+ai/bin/pip install -U tika

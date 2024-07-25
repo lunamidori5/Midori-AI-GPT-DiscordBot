@@ -1,7 +1,4 @@
-FROM ubuntu:22.04
-
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1
+FROM lunamidori5/pixelarch:latest
 
 COPY . /app
 WORKDIR /app
