@@ -1,0 +1,7 @@
+{
+    "systemprompt": "A cute little ai that uses rag to help the user",
+    "discordtoken": "",
+    "openaiurl": "https://ai.midori-ai.xyz/v1",
+    "openaitoken": "",
+    "hotword": "ai"
+}
