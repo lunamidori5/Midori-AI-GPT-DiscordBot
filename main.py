@@ -34,26 +34,37 @@ text_splitter = RecursiveCharacterTextSplitter(
 )
 ## Token slpiter makes the vector store work
 
+# Print a message indicating imports have been completed
 print(f"Imports done")
 
 if os.path.exists("config.json"):
+    # Open the configuration file and load the JSON data
     with open("config.json") as jsonfile:
         config = json.load(jsonfile)
 else:
+    # Exit the program if the configuration file is not found
     sys.exit("'config.json' not found! Please add it and try again.")
 
+# Retrieve the system prompt from the configuration
 system_prompt = config["systemprompt"]
 
+# Retrieve the hotword from the configuration
 hotword = str(config["hotword"])
 
+# Retrieve the Discord bot token from the configuration
 discord_token = config["discordtoken"]
 
+# Retrieve OpenAI configuration parameters from the configuration
 openai_base_url = config["openaiurl"]
 openai_token = config["openaitoken"]
 openai_model = config["openaimodel"]
 
+# Initialize an asynchronous OpenAI client using the provided configuration
 client_openai = AsyncOpenAI(base_url=openai_base_url, api_key=openai_token, timeout=6000)
 
+# This function reads all files in the 'data' folder and upserts their content into the vector database. 
+# It handles both PDF and text files. For PDFs, it extracts the text using a parser. 
+# It splits the text into smaller chunks and upserts each chunk with a unique ID.
 def upsert_docs():
     folder_path = 'data'
     files = os.listdir(folder_path)
