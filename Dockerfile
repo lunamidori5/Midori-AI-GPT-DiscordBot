@@ -3,8 +3,8 @@ FROM lunamidori5/pixelarch:latest
 COPY . /app
 WORKDIR /app
 
-RUN rm -f config.json
+RUN sudo rm -f config.json
 
-RUN ./setup.sh
+RUN chmod +x setup.sh && chmod +x entrypoint.sh && ./setup.sh
 
 ENTRYPOINT [ "/app/entrypoint.sh" ]
