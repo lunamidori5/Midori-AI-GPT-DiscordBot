@@ -5,6 +5,6 @@ WORKDIR /app
 
 RUN sudo rm -f config.json
 
-RUN chmod +x setup.sh && chmod +x entrypoint.sh && ./setup.sh
+RUN sudo chmod +x setup.sh && sudo chmod +x entrypoint.sh && ./setup.sh
 
 ENTRYPOINT [ "/app/entrypoint.sh" ]
