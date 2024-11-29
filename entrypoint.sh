@@ -1,3 +1,3 @@
 #!/bin/bash
 
-ai/bin/python main.py
+uv run main.py
