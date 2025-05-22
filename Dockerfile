@@ -7,4 +7,4 @@ RUN sudo rm -f config.json
 
 RUN sudo chmod +x setup.sh && sudo chmod +x entrypoint.sh && ./setup.sh
 
-ENTRYPOINT [ "/app/entrypoint.sh" ]
+CMD uv run main.py
